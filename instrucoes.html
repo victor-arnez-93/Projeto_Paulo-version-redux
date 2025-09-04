@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Instruções</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/app.css?v=13">
+  <link rel="stylesheet" href="assets/css/resultado.css?v=2">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JS -->
+  <script defer src="assets/js/app.js?v=3"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/imagens/logo_disc.png" alt="DISC" class="brand-img">
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="nav-home">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#professor">Desenvolvedor</a>
+      <a href="index.html#politica">Política</a>
+      <a class="button primary" href="consentimento.html">Começar</a>
+
+      <div class="theme-switch">
+        <span class="theme-label">Tema</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">🌗</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Instruções</h2>
+    <ul>
+      <li>Responda de forma sincera, pensando no seu comportamento natural.</li>
+      <li>Cada pergunta tem 4 alternativas. Escolha a que mais representa você.</li>
+      <li>As letras D/I/S/C <strong>não aparecem</strong> durante o teste.</li>
+    </ul>
+    <p style="opacity:.8">Perguntas no teste: <strong>12</strong></p>
+    <button id="btn-comecar" class="button primary">Começar</button>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <span>© CRV Soluções em T.I</span>
+    <span class="sep">·</span>
+    <span>Teste DISC adaptado pelo Prof. Me. Paulo Rubens Rocha Albino</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn-comecar");
+  btn.addEventListener("click", () => {
+    // Reinicia progresso
+    localStorage.setItem("disc_respostas", JSON.stringify([]));
+    localStorage.setItem("disc_pergunta_atual", "0");
+
+    // Redireciona para a primeira pergunta
+    window.location.href = "pergunta.html";
+  });
+});
+</script>
+</body>
+</html>

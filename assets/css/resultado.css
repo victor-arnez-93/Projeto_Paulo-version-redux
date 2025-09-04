@@ -1,0 +1,391 @@
+/* ================================
+   RESULTADO DISC — padronizado
+   ================================ */
+
+/* Acentos DISC (usados nos hovers) */
+:root{
+  --disc-d:#ef4444;
+  --disc-i:#f59e0b;
+  --disc-s:#10b981;
+  --disc-c:#3b82f6;
+
+  /* Alturas mínimas padrão dos blocos internos do card */
+  --topo-min-h:    56px;   /* Interpretação: TÍTULO */
+  --fortes-min-h: 160px;   /* Interpretação: LISTA Fortes */
+  --atencao-min-h:240px;   /* Interpretação: LISTA Atenção */
+
+  /* Alturas mínimas – SUGESTÕES (para alinhar os 4 cards) */
+  --sug-topo-min-h: 40px;   /* título */
+  --sug-desc-min-h: 50px;   /* descrição do perfil */
+  --sug-areas-min-h: 90px; /* lista de áreas */
+  --sug-cargos-min-h:110px; /* lista de cargos */
+}
+
+
+/* -------- Card superior (Resultado + Gráfico) -------- */
+.result-card{
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  margin:0 0 18px;
+}
+.result-card .result-head{ margin:0 0 12px; }
+.result-card .result-head h2{
+  text-align:center;
+  font-weight:800;
+  letter-spacing:.3px;
+  margin:14px 0 18px;
+  text-shadow:0 0 12px rgba(59,130,246,.25);
+}
+.result-card .result-grid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:24px;
+  align-items:start;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease,
+              background-color .22s ease, border-color .22s ease;
+}
+.result-card .result-grid:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 36px rgba(0,0,0,.24);
+  background: color-mix(in oklab, var(--card) 85%, white 15%);
+}
+.result-card .who{ margin: 0 0 12px; opacity:.95 }
+
+/* Lista D/I/S/C */
+.result-card .disc-counts{ list-style:none; margin:0 0 10px; padding:0; }
+.result-card .disc-counts li{
+  display:flex; align-items:center; gap:10px;
+  padding:6px 10px; border-radius:10px;
+  background: rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  margin-bottom:8px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.result-card .disc-counts li:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.20);
+  border-color: rgba(255,255,255,.14);
+}
+.result-card .disc-counts .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+.result-card .disc-counts .label{ flex:1; opacity:.95 }
+.result-card .disc-counts .value{ font-weight:700; letter-spacing:.3px; }
+.result-card .disc-counts li.d .dot{ background:var(--disc-d) }
+.result-card .disc-counts li.i .dot{ background:var(--disc-i) }
+.result-card .disc-counts li.s .dot{ background:var(--disc-s) }
+.result-card .disc-counts li.c .dot{ background:var(--disc-c) }
+
+/* Predominante */
+.result-card .pred{ margin:12px 0 16px; }
+.result-card .badge{
+  display:inline-block; min-width:28px; text-align:center;
+  padding:4px 10px; border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:700;
+}
+.result-card .badge.d{ background: color-mix(in oklab, var(--disc-d) 18%, transparent); border-color: color-mix(in oklab, var(--disc-d) 38%, transparent) }
+.result-card .badge.i{ background: color-mix(in oklab, var(--disc-i) 18%, transparent); border-color: color-mix(in oklab, var(--disc-i) 38%, transparent) }
+.result-card .badge.s{ background: color-mix(in oklab, var(--disc-s) 18%, transparent); border-color: color-mix(in oklab, var(--disc-s) 38%, transparent) }
+.result-card .badge.c{ background: color-mix(in oklab, var(--disc-c) 18%, transparent); border-color: color-mix(in oklab, var(--disc-c) 38%, transparent) }
+
+/* Botões */
+.result-card .actions{ display:flex; gap:12px; flex-wrap:wrap }
+
+/* Gráfico (coluna direita) */
+.result-card .chart-box{
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px; padding:12px;
+  min-height:260px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.result-card .chart-box:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 12px 26px rgba(0,0,0,.25);
+}
+.result-card .chart-box img{
+  max-width:100%;
+  height:auto;
+  max-height:360px;
+  object-fit:contain;
+  display:block;
+  border-radius:10px;
+}
+.result-card .chart-placeholder{ opacity:.6; font-style:italic }
+
+/* -------- Card inferior (Interpretação) -------- */
+.interpretacao{
+  margin-top:26px;
+  padding:24px;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease,
+              background-color .22s ease, border-color .22s ease;
+}
+.interpretacao:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 36px rgba(0,0,0,.24);
+  background: color-mix(in oklab, var(--card) 85%, white 15%);
+}
+
+/* Cabeçalho da seção */
+.interpretacao .interp-head h3{
+  font-weight:800; margin:0 0 6px; text-align:center;
+}
+.interpretacao .interp-head .muted{
+  opacity:.85; margin:0 0 14px; text-align:center;
+}
+
+/* Grid dos perfis */
+.interpretacao .traits-grid{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+/* Cards de perfil – GRID interno com alinhamento fixo */
+.interpretacao .trait-card{
+  background: rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, color .22s ease;
+  display:grid;
+  grid-template-rows:
+    minmax(var(--topo-min-h), auto)
+    auto
+    minmax(var(--fortes-min-h), auto)
+    auto
+    minmax(var(--atencao-min-h), auto);
+}
+@media (min-width: 881px){
+  .interpretacao .traits-grid .trait-card{
+    --topo-min-h: 56px;
+    --fortes-min-h: 160px;
+    --atencao-min-h: 240px;
+  }
+}
+
+/* Título + pílula */
+.interpretacao .trait-card h4{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:2px 0 10px; text-align:center;
+}
+.interpretacao .pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:7px;
+  font-weight:800; font-family: var(--font-heading);
+  background: transparent;
+  border:1.5px solid currentColor;
+}
+.interpretacao .trait-card.d .pill{ color: var(--disc-d); }
+.interpretacao .trait-card.i .pill{ color: var(--disc-i); }
+.interpretacao .trait-card.s .pill{ color: var(--disc-s); }
+.interpretacao .trait-card.c .pill{ color: var(--disc-c); }
+
+/* Bordas/acento padrão */
+.interpretacao .trait-card.d{ border-color: color-mix(in oklab, var(--disc-d) 33%, var(--border) 67%); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--disc-d) 35%, transparent) }
+.interpretacao .trait-card.i{ border-color: color-mix(in oklab, var(--disc-i) 33%, var(--border) 67%); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--disc-i) 35%, transparent) }
+.interpretacao .trait-card.s{ border-color: color-mix(in oklab, var(--disc-s) 33%, var(--border) 67%); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--disc-s) 35%, transparent) }
+.interpretacao .trait-card.c{ border-color: color-mix(in oklab, var(--disc-c) 33%, var(--border) 67%); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--disc-c) 35%, transparent) }
+
+/* Hover */
+.interpretacao .trait-card.d:hover{ transform: translateY(-3px) scale(1.01); border-color: color-mix(in oklab, var(--disc-d) 55%, transparent); box-shadow: 0 14px 26px color-mix(in oklab, var(--disc-d) 20%, black), 0 2px 0 color-mix(in oklab, var(--disc-d) 45%, transparent) inset; }
+.interpretacao .trait-card.i:hover{ transform: translateY(-3px) scale(1.01); border-color: color-mix(in oklab, var(--disc-i) 55%, transparent); box-shadow: 0 14px 26px color-mix(in oklab, var(--disc-i) 20%, black), 0 2px 0 color-mix(in oklab, var(--disc-i) 45%, transparent) inset; }
+.interpretacao .trait-card.s:hover{ transform: translateY(-3px) scale(1.01); border-color: color-mix(in oklab, var(--disc-s) 55%, transparent); box-shadow: 0 14px 26px color-mix(in oklab, var(--disc-s) 20%, black), 0 2px 0 color-mix(in oklab, var(--disc-s) 45%, transparent) inset; }
+.interpretacao .trait-card.c:hover{ transform: translateY(-3px) scale(1.01); border-color: color-mix(in oklab, var(--disc-c) 55%, transparent); box-shadow: 0 14px 26px color-mix(in oklab, var(--disc-c) 20%, black), 0 2px 0 color-mix(in oklab, var(--disc-c) 45%, transparent) inset; }
+
+/* Título no hover */
+.interpretacao .trait-card.d:hover h4{ color: var(--disc-d) }
+.interpretacao .trait-card.i:hover h4{ color: var(--disc-i) }
+.interpretacao .trait-card.s:hover h4{ color: var(--disc-s) }
+.interpretacao .trait-card.c:hover h4{ color: var(--disc-c) }
+.interpretacao .trait-card.d:hover .pill{ box-shadow: 0 0 12px color-mix(in oklab, var(--disc-d) 55%, transparent) }
+.interpretacao .trait-card.i:hover .pill{ box-shadow: 0 0 12px color-mix(in oklab, var(--disc-i) 55%, transparent) }
+.interpretacao .trait-card.s:hover .pill{ box-shadow: 0 0 12px color-mix(in oklab, var(--disc-s) 55%, transparent) }
+.interpretacao .trait-card.c:hover .pill{ box-shadow: 0 0 12px color-mix(in oklab, var(--disc-c) 55%, transparent) }
+
+/* Subtítulos */
+.interpretacao .ok,.interpretacao .warn{
+  margin:10px 0 6px; font-weight:800; text-align:center; text-transform:uppercase; letter-spacing:.03em; font-family: var(--font-heading);
+}
+.interpretacao .ok{ color: var(--disc-s); }
+.interpretacao .warn{ color: var(--disc-i); }
+
+/* Listas */
+.interpretacao .list{ margin:0; padding-left:18px; display:block }
+.interpretacao .list li{ margin:6px 0 }
+
+/* Ações no rodapé do card inferior */
+.interpretacao .interp-actions{ display:flex; gap:12px; margin-top:16px; justify-content:center }
+
+/* -------- Responsivo -------- */
+@media (max-width: 1080px){
+  .result-card .result-grid{ grid-template-columns: 1fr 1fr }
+  .result-card .chart-box img{ max-height:320px }
+}
+@media (max-width: 880px){
+  .result-card .result-grid{ grid-template-columns: 1fr }
+  .result-card .chart-box{ min-height:220px }
+  .result-card .chart-box img{ max-height:300px }
+  .interpretacao .traits-grid{ grid-template-columns: repeat(2, minmax(220px,1fr)) }
+}
+@media (max-width: 560px){
+  .interpretacao .traits-grid{ grid-template-columns: 1fr }
+}
+
+/* -------- Impressão (PDF organizado) -------- */
+@media print{
+  header.site, footer.site, .print-only-hide, .site-header, .site-footer, .button, .actions { display:none !important; }
+  body{ background:#fff !important; color:#000 !important; }
+  .result-card .result-grid, .interpretacao{ border:none; box-shadow:none; background:#fff; color:#000; }
+  #topo-resultado{ page-break-after: always; }
+  .interpretacao .traits-grid .trait-card:nth-child(1),
+  .interpretacao .traits-grid .trait-card:nth-child(2){ break-inside: avoid; }
+  .interpretacao .traits-grid .trait-card:nth-child(3){ page-break-before: always; }
+  .interpretacao .traits-grid .trait-card:nth-child(3),
+  .interpretacao .traits-grid .trait-card:nth-child(4){ break-inside: avoid; }
+}
+
+/* =======================================================
+   NOVA SEÇÃO — Áreas & Empregos sugeridos (cards no padrão)
+   ======================================================= */
+
+.result-suggestions{
+  margin-top:26px;
+  padding:24px;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease,
+              background-color .22s ease, border-color .22s ease;
+}
+.result-suggestions:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 36px rgba(0,0,0,.24);
+  background: color-mix(in oklab, var(--card) 85%, white 15%);
+}
+
+/* Cabeçalho centralizado */
+.result-suggestions .result-head h3{ font-weight:800; margin:0 0 6px; text-align:center; }
+.result-suggestions .result-head .muted{ opacity:.85; margin:0 0 14px; text-align:center; }
+
+/* Grid */
+.result-suggestions .suggestions-grid{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+/* Card – empilhado */
+.result-suggestions .suggestion-card{
+  --accent: var(--disc-c); /* fallback */
+
+  background: rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, color .22s ease;
+
+  display:grid;
+  grid-template-rows:
+    minmax(var(--sug-topo-min-h), auto)
+    minmax(var(--sug-desc-min-h), auto)
+    minmax(var(--sug-areas-min-h), auto)
+    minmax(var(--sug-cargos-min-h), auto);
+}
+
+/* Mapear as classes vindas do template (d/i/s/c e suggestion-D/d etc.) */
+.result-suggestions .suggestion-card.d,
+.result-suggestions .suggestion-card.suggestion-d,
+.result-suggestions .suggestion-card.suggestion-D{ --accent: var(--disc-d); }
+.result-suggestions .suggestion-card.i,
+.result-suggestions .suggestion-card.suggestion-i,
+.result-suggestions .suggestion-card.suggestion-I{ --accent: var(--disc-i); }
+.result-suggestions .suggestion-card.s,
+.result-suggestions .suggestion-card.suggestion-s,
+.result-suggestions .suggestion-card.suggestion-S{ --accent: var(--disc-s); }
+.result-suggestions .suggestion-card.c,
+.result-suggestions .suggestion-card.suggestion-c,
+.result-suggestions .suggestion-card.suggestion-C{ --accent: var(--disc-c); }
+
+/* Contorno colorido igual Interpretação */
+.result-suggestions .suggestion-card{
+  border-color: color-mix(in oklab, var(--accent) 33%, var(--border) 67%);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent),
+              0 8px 20px rgba(0,0,0,.25);
+}
+
+/* Hover */
+.result-suggestions .suggestion-card:hover{
+  transform: translateY(-3px) scale(1.01);
+  border-color: color-mix(in oklab, var(--accent) 55%, transparent);
+  box-shadow: 0 14px 26px color-mix(in oklab, var(--accent) 20%, black),
+              0 2px 0 color-mix(in oklab, var(--accent) 45%, transparent) inset;
+}
+
+/* Título e pílula — pílula sempre na cor do perfil */
+.result-suggestions .suggestion-title{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:2px 0 10px; text-align:center; font-weight:800;
+  color: inherit; /* texto neutro */
+}
+.result-suggestions .suggestion-title small{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:7px;
+  font-weight:800; font-family: var(--font-heading);
+  background: transparent;
+  color: var(--accent);
+  border:1.5px solid var(--accent); /* <<< garante cor correta */
+}
+
+/* Título ganha cor do perfil no hover (como Interpretação) */
+.result-suggestions .suggestion-card:hover .suggestion-title{ color: var(--accent); }
+.result-suggestions .suggestion-card:hover .suggestion-title small{
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 55%, transparent);
+}
+
+/* Destaque do perfil predominante */
+.result-suggestions .suggestion-card.is-dominant{ position:relative }
+.result-suggestions .suggestion-card.is-dominant::after{
+  content:""; position:absolute; inset:-2px; border-radius:16px;
+  box-shadow: 0 0 0 2px var(--accent); opacity:.55; pointer-events:none;
+}
+
+/* Descrição */
+.result-suggestions .suggestion-desc{ margin:0 0 12px; text-align:center; opacity:.95; font-weight:600; }
+
+/* Blocos internos EMPILHADOS */
+.result-suggestions .suggestion-lists{ display:grid; gap:14px; grid-template-columns: 1fr; }
+.result-suggestions .suggestion-col h5{
+  margin:0 0 6px; font-size:.95rem; opacity:.95; text-align:center;
+  text-transform:uppercase; font-weight:800; letter-spacing:.02em;
+}
+.result-suggestions .suggestion-col ul{ margin:0; padding-left:18px; }
+
+/* Responsivo */
+@media (max-width: 880px){
+  .result-suggestions .suggestions-grid{ grid-template-columns: repeat(2, minmax(220px,1fr)); }
+}
+@media (max-width: 560px){
+  .result-suggestions .suggestions-grid{ grid-template-columns: 1fr; }
+}
+
+/* Impressão */
+@media print{
+  .result-suggestions{ border:none; box-shadow:none; background:#fff; color:#000; }
+  #sugestoes{ page-break-after: always; }
+  .result-suggestions .suggestion-card{ break-inside: avoid; }
+}

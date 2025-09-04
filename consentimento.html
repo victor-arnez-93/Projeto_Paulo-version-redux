@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Consentimento LGPD</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/imagens/icons8-teste-96.png" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/app.css?v=13">
+  <link rel="stylesheet" href="assets/css/resultado.css?v=2">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JS -->
+  <script defer src="assets/js/app.js?v=3"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/imagens/logo_disc.png" alt="DISC" class="brand-img">
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="nav-home">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#professor">Desenvolvedor</a>
+      <a href="index.html#politica">Política</a>
+      <a class="button primary" href="consentimento.html">Começar</a>
+
+      <div class="theme-switch">
+        <span class="theme-label">Tema</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">🌗</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Consentimento (LGPD)</h2>
+    <p>Seus dados serão usados apenas para fins de avaliação comportamental.
+       Você pode solicitar exclusão a qualquer momento.</p>
+
+    <!-- Formulário controlado via JS/localStorage -->
+    <form id="form-consentimento" class="form">
+      <div class="field">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="field agree">
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">Declaro que li e concordo com os termos da LGPD</label>
+      </div>
+
+      <button class="button primary" type="submit">Concordo e iniciar</button>
+      <a href="index.html" class="button primary">Voltar</a>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <span>© CRV Soluções em T.I</span>
+    <span class="sep">·</span>
+    <span>Teste DISC adaptado pelo Prof. Me. Paulo Rubens Rocha Albino</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form-consentimento");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const agree = document.getElementById("agree").checked;
+
+    if (!nome || !email || !agree) {
+      alert("Por favor, preencha todos os campos e aceite os termos.");
+      return;
+    }
+
+    // Salva no localStorage
+    localStorage.setItem("disc_nome", nome);
+    localStorage.setItem("disc_email", email);
+
+    // Redireciona para instruções
+    window.location.href = "instrucoes.html";
+  });
+});
+</script>
+</body>
+</html>

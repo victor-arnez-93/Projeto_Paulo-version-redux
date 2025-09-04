@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Resultado DISC</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/imagens/icons8-teste-96.png" type="image/x-icon">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/app.css?v=13">
+  <link rel="stylesheet" href="assets/css/resultado.css?v=2">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JS -->
+  <script defer src="assets/js/app.js?v=3"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/imagens/logo_disc.png" alt="DISC" class="brand-img">
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="nav-home">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#professor">Desenvolvedor</a>
+      <a href="index.html#politica">Política</a>
+      <a class="button primary" href="consentimento.html">Começar</a>
+
+      <div class="theme-switch">
+        <span class="theme-label">Tema</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">🌗</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- CARD PRINCIPAL -->
+  <section class="result-card container" id="topo-resultado">
+    <header class="result-head">
+      <h2>Resultado DISC</h2>
+    </header>
+
+    <div class="result-grid">
+      <!-- ESQUERDA -->
+      <div class="result-left">
+        <p class="who">
+          <strong id="res-nome">Participante</strong>
+          <span id="res-email"></span>
+        </p>
+
+        <ul class="disc-counts">
+          <li class="d"><span class="dot"></span> <span class="label">D (Dominância):</span> <span id="d-count" class="value">0</span></li>
+          <li class="i"><span class="dot"></span> <span class="label">I (Influência):</span> <span id="i-count" class="value">0</span></li>
+          <li class="s"><span class="dot"></span> <span class="label">S (Estabilidade):</span> <span id="s-count" class="value">0</span></li>
+          <li class="c"><span class="dot"></span> <span class="label">C (Conformidade):</span> <span id="c-count" class="value">0</span></li>
+        </ul>
+
+        <p class="pred">
+          Perfil predominante:
+          <span id="res-pred" class="badge">—</span>
+        </p>
+
+        <div class="actions">
+          <button class="button primary" onclick="window.print()">Salvar em PDF</button>
+          <a class="button primary" href="consentimento.html">Novo teste</a>
+        </div>
+      </div>
+
+      <!-- DIREITA -->
+      <div class="result-right">
+        <figure class="chart-box">
+          <canvas id="discChart" width="300" height="300"></canvas>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUGESTÕES -->
+  <section class="result-suggestions container" id="sugestoes">
+    <header class="result-head">
+      <h3>💼 Áreas &amp; Empregos sugeridos</h3>
+      <p class="muted">Baseado no seu perfil predominante: <strong id="pred-label">—</strong>.</p>
+    </header>
+
+    <div class="suggestions-grid">
+      <!-- D -->
+      <article class="suggestion-card suggestion-d d" id="card-d">
+        <h4 class="suggestion-title">Perfil Dominante (D)</h4>
+        <p class="suggestion-desc">Decisivo, competitivo, gosta de desafios, focado em resultados, assertivo.</p>
+        <div class="suggestion-lists">
+          <div class="suggestion-col">
+            <h5>Áreas recomendadas</h5>
+            <ul>
+              <li>Liderança</li>
+              <li>Empreendedorismo</li>
+              <li>Gestão de Projetos</li>
+              <li>Vendas Estratégicas</li>
+            </ul>
+          </div>
+          <div class="suggestion-col">
+            <h5>Cargos indicados</h5>
+            <ul>
+              <li>CEO / Diretor Executivo</li>
+              <li>Gerente de Projetos</li>
+              <li>Consultor Estratégico</li>
+              <li>Empreendedor</li>
+              <li>Executivo de Vendas</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- I -->
+      <article class="suggestion-card suggestion-i i" id="card-i">
+        <h4 class="suggestion-title">Perfil Influência (I)</h4>
+        <p class="suggestion-desc">Extrovertido, persuasivo, sociável, criativo, gosta de trabalhar em equipe.</p>
+        <div class="suggestion-lists">
+          <div class="suggestion-col">
+            <h5>Áreas recomendadas</h5>
+            <ul>
+              <li>Comunicação</li>
+              <li>Marketing</li>
+              <li>Vendas</li>
+              <li>Relações Públicas</li>
+              <li>Entretenimento</li>
+            </ul>
+          </div>
+          <div class="suggestion-col">
+            <h5>Cargos indicados</h5>
+            <ul>
+              <li>Publicitário</li>
+              <li>Profissional de Marketing Digital</li>
+              <li>Consultor Comercial</li>
+              <li>Relações Públicas</li>
+              <li>Palestrante / Coach</li>
+              <li>RH (T&D)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- S -->
+      <article class="suggestion-card suggestion-s s" id="card-s">
+        <h4 class="suggestion-title">Perfil Estabilidade (S)</h4>
+        <p class="suggestion-desc">Calmo, paciente, empático, cooperativo, gosta de rotinas e segurança.</p>
+        <div class="suggestion-lists">
+          <div class="suggestion-col">
+            <h5>Áreas recomendadas</h5>
+            <ul>
+              <li>Recursos Humanos</li>
+              <li>Atendimento ao Cliente</li>
+              <li>Educação</li>
+              <li>Assistência Social</li>
+            </ul>
+          </div>
+          <div class="suggestion-col">
+            <h5>Cargos indicados</h5>
+            <ul>
+              <li>Psicólogo</li>
+              <li>Assistente Social</li>
+              <li>Professor / Instrutor</li>
+              <li>Enfermeiro</li>
+              <li>Atendimento ao Cliente</li>
+              <li>RH (DP / GP)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- C -->
+      <article class="suggestion-card suggestion-c c" id="card-c">
+        <h4 class="suggestion-title">Perfil Conformidade (C)</h4>
+        <p class="suggestion-desc">Detalhista, analítico, organizado, segue regras, busca excelência.</p>
+        <div class="suggestion-lists">
+          <div class="suggestion-col">
+            <h5>Áreas recomendadas</h5>
+            <ul>
+              <li>Finanças</li>
+              <li>Engenharia</li>
+              <li>Tecnologia</li>
+              <li>Pesquisa</li>
+              <li>Jurídico</li>
+            </ul>
+          </div>
+          <div class="suggestion-col">
+            <h5>Cargos indicados</h5>
+            <ul>
+              <li>Engenheiro</li>
+              <li>Cientista de Dados</li>
+              <li>Auditor / Contador</li>
+              <li>Advogado</li>
+              <li>Programador / Desenvolvedor de Software</li>
+              <li>Analista Financeiro</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- INTERPRETAÇÃO -->
+  <section class="interpretacao container">
+    <header class="interp-head">
+      <h3>📖 Interpretação do Teste DISC</h3>
+      <p class="muted">O maior número indica o perfil predominante. O DISC não define quem você é — ele ajuda a entender seu estilo de preferência. Todos têm traços dos quatro perfis.</p>
+    </header>
+
+    <div class="traits-grid">
+      <article class="trait-card d">
+        <h4><span class="pill d">D</span> Dominância</h4>
+        <h5 class="ok">Pontos Fortes</h5>
+        <ul class="list">
+          <li>Assertivo</li><li>Iniciativo</li><li>Liderança natural</li>
+          <li>Independente</li><li>Competitivo</li><li>Focado em resultados</li>
+          <li>Auto-gerenciável</li><li>Decisões rápidas</li>
+        </ul>
+        <h5 class="warn">Pontos de Atenção</h5>
+        <ul class="list">
+          <li>Arrogância / impaciência</li>
+          <li>Possível insensibilidade</li>
+          <li>Tendência a autoritarismo</li>
+          <li>Pode soar dominante / inflexível</li>
+        </ul>
+      </article>
+
+      <article class="trait-card i">
+        <h4><span class="pill i">I</span> Influência</h4>
+        <h5 class="ok">Pontos Fortes</h5>
+        <ul class="list">
+          <li>Otimista e entusiasmado</li><li>Comunicação fácil</li><li>Trabalho em equipe</li>
+          <li>Persuasivo</li><li>Criativo e intuitivo</li><li>Motivador / inspirador</li>
+        </ul>
+        <h5 class="warn">Pontos de Atenção</h5>
+        <ul class="list">
+          <li>Volúvel / desorganizado</li>
+          <li>Procrastinação</li>
+          <li>Busca exagerada por aprovação</li>
+          <li>Ingenuidade</li>
+          <li>Dificuldade com regras rígidas</li>
+        </ul>
+      </article>
+
+      <article class="trait-card s">
+        <h4><span class="pill s">S</span> Estabilidade</h4>
+        <h5 class="ok">Pontos Fortes</h5>
+        <ul class="list">
+          <li>Metódico e disciplinado</li><li>Paciente e tolerante</li>
+          <li>Equilibrado e confiável</li><li>Sensível e empático</li>
+          <li>Modesto e amigável</li><li>Bom ouvinte / conciliador</li>
+        </ul>
+        <h5 class="warn">Pontos de Atenção</h5>
+        <ul class="list">
+          <li>Resistência a mudanças</li>
+          <li>Indecisão / procrastinação</li>
+          <li>Dificuldade em impor limites</li>
+          <li>Aversão a conflitos</li>
+          <li>Se magoa com facilidade</li>
+        </ul>
+      </article>
+
+      <article class="trait-card c">
+        <h4><span class="pill c">C</span> Conformidade</h4>
+        <h5 class="ok">Pontos Fortes</h5>
+        <ul class="list">
+          <li>Planejamento estratégico</li><li>Análise e pensamento crítico</li>
+          <li>Organização / disciplina</li><li>Especialização técnica</li>
+          <li>Cuidado com qualidade e precisão</li><li>Observador e criterioso</li>
+        </ul>
+        <h5 class="warn">Pontos de Atenção</h5>
+        <ul class="list">
+          <li>Perfeccionismo / crítica em excesso</li>
+          <li>Tendência ao isolamento</li>
+          <li>Resistência a mudanças abruptas</li>
+          <li>Inflexibilidade com regras</li>
+          <li>Dificuldade em delegar</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <span>© CRV Soluções em T.I</span>
+    <span class="sep">·</span>
+    <span>Teste DISC adaptado pelo Prof. Me. Paulo Rubens Rocha Albino</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nome = localStorage.getItem("disc_nome") || "Participante";
+  const email = localStorage.getItem("disc_email") || "";
+  const respostas = JSON.parse(localStorage.getItem("disc_respostas") || "[]");
+
+  document.getElementById("res-nome").textContent = nome;
+  document.getElementById("res-email").textContent = email ? " • " + email : "";
+
+  const counts = { D:0, I:0, S:0, C:0 };
+  respostas.forEach(r => { if(counts[r] !== undefined) counts[r]++; });
+
+  document.getElementById("d-count").textContent = counts.D;
+  document.getElementById("i-count").textContent = counts.I;
+  document.getElementById("s-count").textContent = counts.S;
+  document.getElementById("c-count").textContent = counts.C;
+
+  let pred = Object.keys(counts).reduce((a,b) => counts[a] >= counts[b] ? a : b);
+  document.getElementById("res-pred").textContent = pred;
+  document.getElementById("res-pred").classList.add(pred.toLowerCase());
+  document.getElementById("pred-label").textContent = pred;
+
+  document.querySelectorAll(".suggestion-card").forEach(c => c.classList.remove("is-dominant"));
+  const cardPred = document.getElementById("card-" + pred.toLowerCase());
+  if(cardPred) cardPred.classList.add("is-dominant");
+
+  new Chart(document.getElementById("discChart"), {
+    type: "pie",
+    data: {
+      labels: ["D", "I", "S", "C"],
+      datasets: [{
+        data: [counts.D, counts.I, counts.S, counts.C],
+        backgroundColor: ["#ef4444","#f59e0b","#10b981","#3b82f6"]
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: "bottom" } }
+    }
+  });
+});
+</script>
+</body>
+</html>

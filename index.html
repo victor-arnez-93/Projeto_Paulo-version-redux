@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Teste DISC – Início</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="assets/imagens/icons8-teste-96.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/app.css?v=13">
+  <link rel="stylesheet" href="assets/css/resultado.css?v=2">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JS -->
+  <script defer src="assets/js/app.js?v=3"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/imagens/logo_disc.png" alt="DISC" class="brand-img">
+    </a>
+
+    <nav class="links">
+      <a href="index.html" class="nav-home">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#professor">Desenvolvedor</a>
+      <a href="index.html#politica">Política</a>
+      <a class="button primary" href="consentimento.html">Começar</a>
+
+      <div class="theme-switch">
+        <span class="theme-label">Tema</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">🌗</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero card center">
+    <div class="hero-text">
+      <h1>Teste DISC – Avaliação Comportamental</h1>
+      <p>Entenda tendências do seu comportamento de forma prática e objetiva. As letras D/I/S/C
+        <strong>não aparecem</strong> durante o teste; o resultado é mostrado apenas ao final.</p>
+    </div>
+  </section>
+
+  <!-- O que é o DISC -->
+  <section id="o-que-e" class="card center">
+    <h2>O que é o DISC?</h2>
+    <p>DISC é um modelo de <strong>tendências comportamentais</strong>. Ele não “rotula” nem
+       define sua personalidade de forma absoluta — serve para apoiar autoconhecimento,
+       comunicação em equipe e gestão no ambiente de trabalho.</p>
+
+    <div class="grid4 disc-cards">
+      <article class="pill d">
+        <h3>D • Dominância</h3>
+        <p>Foco em resultados, ação e desafios.</p>
+      </article>
+      <article class="pill i">
+        <h3>I • Influência</h3>
+        <p>Comunicação, carisma e trabalho com pessoas.</p>
+      </article>
+      <article class="pill s">
+        <h3>S • Estabilidade</h3>
+        <p>Paciência, cooperação e consistência.</p>
+      </article>
+      <article class="pill c">
+        <h3>C • Conformidade</h3>
+        <p>Análise, precisão e atenção a regras.</p>
+      </article>
+    </div>
+
+    <p class="note">⚠️ <strong>Importante:</strong> o teste DISC <u>não é avaliação clínica
+    ou psicológica</u> e não substitui acompanhamento profissional.</p>
+  </section>
+
+  <!-- Como funciona -->
+  <section id="como-funciona" class="card center">
+    <h2>Como funciona</h2>
+    <ol class="steps">
+      <li><strong>Consentimento LGPD</strong> e identificação (nome e e-mail).</li>
+      <li>Responda a <strong>12 perguntas</strong> de múltipla escolha (as alternativas são
+          <em>embaralhadas</em> e as letras D/I/S/C ficam ocultas).</li>
+      <li>Veja seu <strong>resultado</strong> com gráfico e interpretações.</li>
+    </ol>
+  </section>
+
+  <!-- Sobre a plataforma -->
+  <section id="sobre" class="card center">
+    <h2>Sobre a plataforma</h2>
+    <p>Desenvolvida pela <strong>CRV Soluções em T.I</strong> para aplicação do teste DISC em
+       contexto acadêmico e corporativo. Interface responsiva, rápida e preparada para
+       turmas e relatórios.</p>
+
+    <div class="figure">
+      <a class="img-link"
+         href="https://www.instagram.com/crv_solucoes.ti/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram da CRV Soluções em TI">
+        <img src="assets/imagens/logo1.png" alt="CRV Soluções em TI" class="about-logo">
+      </a>
+    </div>
+  </section>
+
+  <!-- Sobre o desenvolvedor -->
+  <section id="professor" class="card center">
+    <h2>Sobre o desenvolvedor</h2>
+    <p>Conteúdo do teste adaptado pelo <strong>Prof. Me. Paulo Rubens Rocha Albino</strong>,
+       na disciplina de <em>Gestão de Pessoas/ambientes corporativos</em>.</p>
+
+    <div class="figure">
+      <a class="img-link"
+         href="https://www.linkedin.com/in/prof-me-paulo-rubens-rocha-albino/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="LinkedIn do Prof. Paulo Rubens Rocha Albino">
+        <img src="assets/imagens/foto1.png" alt="Prof. Paulo Rubens Rocha Albino" class="avatar-round">
+      </a>
+    </div>
+  </section>
+
+  <!-- Política -->
+  <section id="politica" class="card center">
+    <h2>Política e Privacidade</h2>
+    <p>De acordo com a Lei nº 13.709/2018 (LGPD), os dados informados serão usados
+       exclusivamente para a realização do teste e estatísticas internas. Você pode solicitar
+       a exclusão a qualquer momento.</p>
+    <p>Teoria DISC (Marston, 1928) é domínio público.✅</p>
+    <a class="button primary" href="consentimento.html">Concordo e quero iniciar</a>
+  </section>
+
+  <!-- Botão flutuante: Voltar ao topo -->
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <span>© CRV Soluções em T.I</span>
+    <span class="sep">·</span>
+    <span>Teste DISC adaptado pelo Prof. Me. Paulo Rubens Rocha Albino</span>
+  </div>
+</footer>
+</body>
+</html>
