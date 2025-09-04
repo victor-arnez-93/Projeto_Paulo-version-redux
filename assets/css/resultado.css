@@ -59,7 +59,7 @@
 .result-card .who{ margin: 0 0 12px; opacity:.95 }
 
 /* Lista D/I/S/C */
-.result-card .disc-counts{ list-style:none; margin:0 0 10px; padding:0; }
+.result-card .disc-counts{ list-style:none; margin:0 20px 10px; padding:0; }
 .result-card .disc-counts li{
   display:flex; align-items:center; gap:10px;
   padding:6px 10px; border-radius:10px;
@@ -224,7 +224,7 @@
 .interpretacao .warn{ color: var(--disc-i); }
 
 /* Listas */
-.interpretacao .list{ margin:0; padding: left 116px; display:block }
+.interpretacao .list{ margin:0; padding-left: 92px; display:block }
 .interpretacao .list li{ margin:6px 0 }
 
 /* Ações no rodapé do card inferior */
