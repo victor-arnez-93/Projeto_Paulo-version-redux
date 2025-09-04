@@ -224,7 +224,7 @@
 .interpretacao .warn{ color: var(--disc-i); }
 
 /* Listas */
-.interpretacao .list{ margin:0; padding-left:18px; display:block }
+.interpretacao .list{ margin:0; padding: left 116px; display:block }
 .interpretacao .list li{ margin:6px 0 }
 
 /* Ações no rodapé do card inferior */
@@ -373,7 +373,7 @@
   margin:0 0 6px; font-size:.95rem; opacity:.95; text-align:center;
   text-transform:uppercase; font-weight:800; letter-spacing:.02em;
 }
-.result-suggestions .suggestion-col ul{ margin:0; padding-left:18px; }
+.result-suggestions .suggestion-col ul{ margin:0; padding-left:100px; }
 
 /* Responsivo */
 @media (max-width: 880px){
